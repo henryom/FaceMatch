@@ -6,10 +6,13 @@ def remove_ds(files):
             files.remove(f)
     return files
 
-folders = remove_ds(os.listdir('TestCroppedDataset'))
+folders = remove_ds(os.listdir('TrainCroppedDataset'))
+
+num = 0
 
 for folder in folders:
-	paths = remove_ds(os.listdir('TestCroppedDataset/' + folder))
+	paths = remove_ds(os.listdir('TrainCroppedDataset/' + folder))
 	for path in paths:
-		command = 'cp TestCroppedDataset/' + folder + '/' + path + ' Faces/Test'
+		command = 'cp TrainCroppedDataset/' + folder + '/' + path + ' Faces/Train/' + str(num) + '.jpg'
 		os.system(command)
+		num += 1
